@@ -32,8 +32,12 @@ _start:
 
     /* disable interrupt */
     MTC0	zero, CP0_CAUSE
-    MTC0	zero, CP0_STATUS	# Set CPU to disable interrupt.
-    ehb
+    mfc0    t0, CP0_STATUS
+    li      t1, 0xfffffffe
+    and     t0, t0, t1
+    MTC0	t0, CP0_STATUS	# Set CPU to disable interrupt.
+    nop
+    nop
 
 #ifdef ARCH_MIPS64
     dli		t0, ST0_KX
