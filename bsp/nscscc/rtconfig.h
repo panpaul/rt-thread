@@ -1,9 +1,6 @@
 #ifndef RT_CONFIG_H__
 #define RT_CONFIG_H__
 
-#define RT_USING_SELF_BOOT
-#define RT_SELF_BOOT_DEBUG
-
 /* Automatically generated file; DO NOT EDIT. */
 /* RT-Thread Configuration */
 
@@ -19,6 +16,9 @@
 #define RT_USING_IDLE_HOOK
 #define RT_IDLE_HOOK_LIST_SIZE 4
 #define IDLE_THREAD_STACK_SIZE 1024
+#define RT_USING_TIMER_SOFT
+#define RT_TIMER_THREAD_PRIO 4
+#define RT_TIMER_THREAD_STACK_SIZE 512
 #define RT_DEBUG
 #define RT_DEBUG_COLOR
 
@@ -99,7 +99,9 @@
 #define RT_USING_DEVICE_IPC
 #define RT_PIPE_BUFSZ 512
 #define RT_USING_SERIAL
+#define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
+#define RT_USING_PIN
 
 /* Using USB */
 
@@ -115,11 +117,12 @@
 
 /* Socket abstraction layer */
 
+
 /* Network interface device */
+
 
 /* light weight TCP/IP stack */
 
-/* Static IPv4 Address */
 
 /* AT commands */
 
@@ -129,6 +132,9 @@
 
 /* Utilities */
 
+#define RT_USING_RYM
+#define YMODEM_USING_CRC_TABLE
+#define YMODEM_USING_FILE_TRANSFER
 
 /* RT-Thread MIPS CPU */
 
@@ -163,6 +169,8 @@
 
 /* system packages */
 
+/* acceleration: Assembly language or algorithmic acceleration packages */
+
 
 /* Micrium: Micrium software products porting for RT-Thread */
 
@@ -170,17 +178,21 @@
 /* peripheral libraries and drivers */
 
 
-/* miscellaneous packages */
+/* AI packages */
 
+
+/* miscellaneous packages */
 
 /* samples: kernel and components samples */
 
 
-/* games: games run on RT-Thread console */
+/* entertainment: terminal games and other interesting software packages */
 
 #define SOC_NSCSCC
 #define RT_NSCSCC
-#define RT_UART_RX_BUFFER_SIZE 64
-#define NO_TOUCH
+#define RT_USING_SELF_BOOT
+#define RT_SELF_BOOT_DEBUG
+#define RT_USING_UART0
+#define RT_UART_RX_BUFFER_SIZE 1
 
 #endif

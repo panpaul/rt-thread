@@ -28,10 +28,11 @@ Export('rtconfig')
 # prepare building environment
 objs = PrepareBuilding(env, RTT_ROOT)
 
-if GetDepend('RT_USING_SELF_BOOT'):
-    rtconfig.LFLAGS += " -Ttext 0x9fc00000"
-else:
-    rtconfig.LFLAGS += " -Ttext 0x80200000"
+#if GetDepend('RT_USING_SELF_BOOT'):
+#    rtconfig.LFLAGS += " -Ttext 0x9fc00000"
+#else:
+#    rtconfig.LFLAGS += " -Ttext 0x80200000"
+rtconfig.LFLAGS += " -Ttext 0x80200000"
 env.Replace(LINKFLAGS = rtconfig.LFLAGS)
 
 if GetDepend('RT_USING_FPU'):
