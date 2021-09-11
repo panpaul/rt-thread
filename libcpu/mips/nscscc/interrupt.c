@@ -45,7 +45,7 @@ void rt_hw_interrupt_init(void)
     rt_uint32_t c0_status = 0;
 
     for (i=0; i < MAX_INTR; i++)
-        mips_unmask_cpu_irq(i);
+        mips_mask_cpu_irq(i);
 
     rt_memset(irq_handle_table, 0x00, sizeof(irq_handle_table));
     for (idx = 0; idx < MAX_INTR; idx ++)

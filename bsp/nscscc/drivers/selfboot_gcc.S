@@ -25,10 +25,8 @@
 
 #include <mips.h>
 #include "rtconfig.h"
-#include "nscscc.h"
-#include "nscscc_regs.h"
-#include "cache.h"
 
+#include "cache.h"
 #include "selfboot.h"
 
 /* Macros */
@@ -183,7 +181,7 @@ locate:
 	sb	v1, NSCSCC_UART_FCR_OFFSET(v0)
 	li	v1, CFCR_DLAB
 	sb	v1, NSCSCC_UART_LCR_OFFSET(v0)
-	li	v1, EARLY_DEBUG_BAUD
+	li	v1, 0x23
 	sb	v1, NSCSCC_UART_LSB_OFFSET(v0)
 	srl	v1, 8
 	sb	v1, NSCSCC_UART_MSB_OFFSET(v0)

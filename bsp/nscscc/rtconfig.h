@@ -29,6 +29,7 @@
 #define RT_USING_EVENT
 #define RT_USING_MAILBOX
 #define RT_USING_MESSAGEQUEUE
+#define RT_USING_SIGNALS
 
 /* Memory Management */
 
@@ -93,6 +94,7 @@
 #define RT_DFS_ELM_MAX_SECTOR_SIZE 512
 #define RT_DFS_ELM_REENTRANT
 #define RT_USING_DFS_DEVFS
+#define RT_USING_DFS_RAMFS
 
 /* Device Drivers */
 
@@ -101,7 +103,6 @@
 #define RT_USING_SERIAL
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
-#define RT_USING_PIN
 
 /* Using USB */
 
@@ -109,9 +110,6 @@
 /* POSIX layer and C standard library */
 
 #define RT_USING_LIBC
-#define RT_USING_PTHREADS
-#define PTHREAD_NUM_MAX 8
-#define RT_USING_POSIX
 
 /* Network */
 
@@ -193,6 +191,6 @@
 #define RT_USING_SELF_BOOT
 #define RT_SELF_BOOT_DEBUG
 #define RT_USING_UART0
-#define RT_UART_RX_BUFFER_SIZE 1
+#define RT_UART_RX_BUFFER_SIZE 16
 
 #endif

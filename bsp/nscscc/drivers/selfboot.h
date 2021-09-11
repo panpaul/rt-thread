@@ -13,6 +13,8 @@
 
 #include "board.h"
 
+#define NSCSCC_UART0_BASE                 0xBFE40000
+
 /* UART register offset*/
 #define NSCSCC_UART_DAT_OFFSET            (0)
 #define NSCSCC_UART_IER_OFFSET            (1)

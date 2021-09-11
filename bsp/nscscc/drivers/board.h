@@ -20,13 +20,7 @@
 void rt_hw_board_init(void);
 #endif
 
-/* Early Debug config */
-#define EARLY_DEBUG /* UART0 serial print debug in early stage */
-#define EARLY_DEBUG_BAUD  (0x23) /* 57600 The same as PMON */
-
-/* Clock config */
-#define CPU_HZ            (33 * 1000000)
-
-#define MEM_SIZE          (0x7ffffff)
+#define CPU_HZ    (33 * 1000000)
+#define MEM_SIZE  (0x7ffffff)
 
 #endif

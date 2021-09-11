@@ -1,21 +1,22 @@
 /*
- * Copyright (c) 2006-2018, RT-Thread Development Team
+ * File      : uart.h
+ * This file is part of RT-Thread RTOS
+ * COPYRIGHT (C) 2006-2012, RT-Thread Develop Team
  *
- * SPDX-License-Identifier: Apache-2.0
+ * The license and distribution terms for this file may be
+ * found in the file LICENSE in this distribution or at
+ * http://www.rt-thread.org/license/LICENSE
  *
  * Change Logs:
  * Date           Author       Notes
- * 2018-05-08     zhuangwei    the first version
- * 2021-09-09     Paul         modified for NSCSCC
+ * 2011-08-08     lgnq         first version for LS1B
+ * 2021-09-10     Paul         modified for NSCSCC
  */
 
-#ifndef __DRV_UART_H__
-#define __DRV_UART_H__
+#ifndef __UART_H__
+#define __UART_H__
 
-#include "nscscc.h"
 #include <rthw.h>
-
-#define UART_BAUDRATE 57600
 
 #define UART0_BASE          0xBFE40000
 
@@ -47,7 +48,7 @@
 
 /* UART interrupt enable register value */
 #define UARTIER_IME     (1 << 3)
-#define UARTIER_ILE     (1 << 2)
+#define UARTIER_ILE     (1 << 2) 
 #define UARTIER_ITXE    (1 << 1)
 #define UARTIER_IRXE    (1 << 0)
 
@@ -69,7 +70,10 @@
 #define UARTLSR_OE      (1 << 1)
 #define UARTLSR_DR      (1 << 0)
 
+#ifndef __ASSEMBLY__
+
 void rt_hw_uart_init(void);
 
+#endif
 
 #endif

@@ -24,4 +24,6 @@
 #define NSCSCC_NAND_IRQ     5
 #define NSCSCC_DMA_IRQ      6
 
+extern void rt_hw_timer_init(void);
+
 #endif

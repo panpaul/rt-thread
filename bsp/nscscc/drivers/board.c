@@ -15,14 +15,14 @@
 #include <rtthread.h>
 #include <rthw.h>
 #include <mips.h>
+#include "nscscc.h"
+#include "uart.h"
 
 #include "board.h"
-#include "drv_uart.h"
-#include "nscscc.h"
 
 extern unsigned char __bss_end;
 
-#define RT_HW_HEAP_END    (0x80000000 + MEM_SIZE)
+#define RT_HW_HEAP_END    (0x80200000 + MEM_SIZE)
 
 
 /**
@@ -54,7 +54,7 @@ void rt_hw_board_init(void)
 
 #ifdef RT_USING_FPU
     /* init hardware fpu */
-    rt_hw_fpu_init();
+    // rt_hw_fpu_init();
 #endif
 
 #ifdef RT_USING_COMPONENTS_INIT
