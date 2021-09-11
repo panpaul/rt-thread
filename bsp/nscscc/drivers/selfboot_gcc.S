@@ -65,9 +65,12 @@
 _start:
 	mtc0	zero, CP0_STATUS
 	mtc0	zero, CP0_CAUSE
-	li	t0, ST0_BEV
+	li		t0, ST0_BEV
 	mtc0	t0, CP0_STATUS
 	bal	locate
+	nop
+FailAddr:
+ 	b	FailAddr
 	nop
 
 /* 0xbfc00200 TLB_REFILL exception */
@@ -174,6 +177,11 @@ print_cause:
 	nop
 
 locate:
+	/* already loaded into correct place */
+	la	v0, FailAddr
+	beq	v0, ra, JumpEntry
+	nop
+
 	/* start to initialize debug uart port */
 	la	v0, NSCSCC_UART0_BASE
 1:
@@ -227,8 +235,10 @@ Bootloader:
 	bne	t0, t1, 1b
 	nop
 
-	li a0, 256
-	srl a0, 20 # a0 = memory size stored in MB
+JumpEntry:
+	la	v0, NSCSCC_UART0_BASE
+	li	a0, 256
+	srl	a0, 20 # a0 = memory size stored in MB
 
 	PRINTSTR("Done\r\n")
 	PRINTSTR("INFO: Early Boot Ended\r\n")
