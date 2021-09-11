@@ -22,3 +22,9 @@
 | GPIO | 不支持 |  |
 | NAND | 不支持 |  |
 | DMFE | 不支持 |  |
+
+## 3. 工具链
+
+`RT-Thread`官方使用的`MIPS SDE`工具链过于陈旧且缺乏部分编译功能（如：`-mno-branch-likely`）等，如果没有实现`Branch Likely`功能，需要自己编译新版本`GCC`
+
+编译过程可以参考：[Gist](https://gist.github.com/panpaul/0e34fde8bbd5155b33fe37e517b916fb)
